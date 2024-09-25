@@ -11,7 +11,8 @@ public class ResponderChamadaService {
     }
 
     public Chamada apply(Chamada chamada) {
-        return null;
+        var chamadaSalva = this.chamadaRepository.salvar(chamada);
+        return chamadaSalva;
     }
 
 }
