@@ -32,6 +32,7 @@ public class ResponderChamadaServiceTest extends TestBase {
         outraChamada.setData(LocalDate.now());
         Mockito.when(responderChamadaService.apply(chamada)).thenReturn(outraChamada);
         var result = responderChamadaService.apply(chamada);
+        Mockito.verify(chamadaRepository).salvar(chamada);
         Assertions.assertEquals(result.getData(), outraChamada.getData());
     }
 
