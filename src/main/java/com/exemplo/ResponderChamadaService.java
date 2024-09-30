@@ -10,8 +10,9 @@ public class ResponderChamadaService {
         this.chamadaRepository = chamadaRepository;
     }
 
-    public Chamada apply(Chamada chamada) {
-        var chamadaSalva = this.chamadaRepository.salvar(chamada);
+    public Chamada apply(Chamada chamada) throws ValidacaoException {        
+        chamada.getAluno().verificaAlunoMatriculado();
+        var chamadaSalva = this.chamadaRepository.salvar(chamada);        
         return chamadaSalva;
     }
 
